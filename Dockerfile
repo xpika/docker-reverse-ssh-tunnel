@@ -1,5 +1,5 @@
 FROM ubuntu:trusty
-MAINTAINER Feng Honglin <hfeng@tutum.co>
+MAINTAINER Alan Hawkins <w@xy30.com>
 
 RUN apt-get update && \
     apt-get -y --no-install-recommends install openssh-server autossh pwgen sshpass && \
