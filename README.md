@@ -3,9 +3,9 @@ This container setups up a reserve ssh tunnel between a NATed host and a public 
 
 Create Image
 ------------
-To create the image `tifayuki/reverse-ssh-tunnel`, execute the following command on the tutum-docker-couchdb folder:
+To create the image `xpika/reverse-ssh-tunnel`, execute the following command on the tutum-docker-couchdb folder:
 ```
-	docker build -t tifayuki/reverse-ssh-tunnel .
+	docker build -t xpika/reverse-ssh-tunnel .
 ```	
 Usage
 -----
@@ -15,7 +15,7 @@ On public host, run:
     -e ROOT_PASS=<your_password> \
     -p <your_sshd_port>:22 \
     -p <forwarding_port>:1080 \
-    tifayuki/reverse-ssh-tunnel
+    xpika/reverse-ssh-tunnel
 ```
 Parameters:
 ```
@@ -33,7 +33,7 @@ On NATed Host, run:
     -e ROOT_PASS=<your_password> \
     -e PROXY_PORT=<NATed_service_port> \
     --net=host \
-    tifayuki/reverse-ssh-tunnel
+    xpika/reverse-ssh-tunnel
 ```
 Parameters:
 ```
@@ -56,7 +56,7 @@ On public host(`111.112.113.114`):
 ```
 On NATed host:
 ```
-  docker run -d -e PUBLIC_HOST_ADDR=111.112.113.114 -e PUBLIC_HOST_PORT=2222 -e ROOT_PASS=mypass -e PROXY_PORT=8080 --net=host tifayuki/reverse-ssh-tunnel
+  docker run -d -e PUBLIC_HOST_ADDR=111.112.113.114 -e PUBLIC_HOST_PORT=2222 -e ROOT_PASS=mypass -e PROXY_PORT=8080 --net=host xpika/reverse-ssh-tunnel
 ```
 
 Then, `curl 111.112.113.114:80` will work
